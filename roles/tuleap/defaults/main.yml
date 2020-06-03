@@ -1,0 +1,31 @@
+---
+
+###
+# TULEAP
+###
+
+# Version
+tuleap_version: centos7
+
+# Directories
+tuleap_data_dir: /data/tuleap
+
+###
+# DOCKER
+###
+
+# Network
+tuleap_docker_network:
+  name: tuleap
+  state: present
+
+# Testrail docker container
+tuleap_docker:
+  name: tuleap
+  image: enalean/tuleap-aio:{{ tuleap_version }}
+  state: started
+  network: "{{ tuleap_docker_network.name }}"
+  ports:
+    - 8000:80
+  volumes:
+    - "{{ tuleap_data_dir }}:/data"

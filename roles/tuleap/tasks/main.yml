@@ -1,0 +1,25 @@
+---
+
+- name: TULEAP DOCKER | Create directories
+  file:
+    path: "{{ tuleap_data_dir }}"
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+
+- name: TULEAP DOCKER | Create the network
+  docker_network:
+    name: "{{ tuleap_docker_network.name }}"
+    state: "{{ tuleap_docker_network.state }}"
+
+- name: TULEAP DOCKER | Deploy the application
+  docker_container:
+    name: "{{ tuleap_docker.name }}"
+    image: "{{ tuleap_docker.image }}"
+    state: "{{ tuleap_docker.state }}"
+    restart: yes
+    networks:
+      - name: "{{ tuleap_docker.network }}"
+    ports: "{{ tuleap_docker.ports }}"
+    volumes: "{{ tuleap_docker.volumes }}"
