@@ -50,7 +50,7 @@ Current machine states:
 tuleap01                   running (virtualbox)
 ```
 
-If everything run as expected, you should be able to reach the Tuleap web interface : https://10.0.0.11/
+If everything run as expected, you should be able to reach the Tuleap web interface : https://tuleap.local/
 
 The default admin password should be displayed in the last Ansible task.
 
