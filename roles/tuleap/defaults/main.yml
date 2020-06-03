@@ -26,6 +26,7 @@ tuleap_docker:
   state: started
   network: "{{ tuleap_docker_network.name }}"
   ports:
-    - 8000:80
+    - 80:80
+    - 443:443
   volumes:
     - "{{ tuleap_data_dir }}:/data"

@@ -23,3 +23,11 @@
       - name: "{{ tuleap_docker.network }}"
     ports: "{{ tuleap_docker.ports }}"
     volumes: "{{ tuleap_docker.volumes }}"
+
+- name: TULEAP DOCKER | Get Admin password
+  command: docker exec {{ tuleap_docker.name }} cat /root/.tuleap_passwd
+  register: admin_password
+
+- name: TULEAP DOCKER | Display Admin password
+  debug:
+    msg: "{{ admin_password.stdout }}"

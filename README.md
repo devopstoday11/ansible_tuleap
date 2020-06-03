@@ -2,6 +2,8 @@
 
 The aim of this project is to deploy am all in one Tuleap server on a Linux Vagrant instance.
 
+This project can be used for demo purpose.
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
@@ -48,7 +50,9 @@ Current machine states:
 tuleap01                   running (virtualbox)
 ```
 
-If everything run as expected, you should be able to reach the Tuleap web interface : http://10.0.0.11/
+If everything run as expected, you should be able to reach the Tuleap web interface : https://10.0.0.11/
+
+The default admin password should be displayed in the last Ansible task.
 
 #### Destroy
 

@@ -62,6 +62,7 @@ Vagrant.configure("2") do |config|
     config.vm.define vm_name = "%s%02d" % [$instance_name_prefix, i] do |server|
       server.vm.hostname = vm_name
       server.vm.network "private_network", ip: "#{$subnet}#{i}"
+      server.hostmanager.aliases = %w(tuleap.local)
 
       host_vars[vm_name] = {
         "ip": "#{$subnet}#{i}"
